@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import BurgerPane from './BurgerPane';
 import IngredientList from './IngredientList';
@@ -26,6 +26,7 @@ function App(props) {
   // TODO declare some functions
   function stackBurger(e) {
     const ingToAdd = ingredients.filter(ing => ing.name === e.target.innerText);
+
     setStack([ingToAdd[0], ...stack]);
   }
 
@@ -38,11 +39,13 @@ function App(props) {
     let ingName = document.querySelector('#ingName').value;
     let ingColor = document.querySelector('#ingColor').value;
     const ing = { name: ingName, color: ingColor };
+
     setIngredients([ing, ...ingredients]);
   }
 
   function clearIng() {
     const tempStack = stack;
+
     tempStack.shift();
     setStack([...tempStack]);
   }
